@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Daily Chronicle & Tech Review — Morning Edition</title>
+    <!-- Vintage Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=UnifrakturMaguntia&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=JetBrains+Mono:wght@400;500;700&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Top Responsive Toolbar with Mobile Drawer & Archive Modal Button -->
+    <header class="app-toolbar no-print">
+      <div class="toolbar-brand">
+        <button id="btn-hamburger" class="hamburger-btn" aria-label="Toggle Navigation Menu">
+          <svg class="hamburger-icon" viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <span class="toolbar-icon">🗞️</span>
+        <div class="brand-text">
+          <span class="toolbar-title">The Daily Chronicle</span>
+          <span class="toolbar-sub">& TECH REVIEW</span>
+        </div>
+      </div>
+
+      <!-- Desktop Page Navigation Ribbon -->
+      <nav class="booklet-nav-ribbon" id="nav-ribbon">
+        <button class="nav-page-btn active" data-page="1">1. Cover</button>
+        <button class="nav-page-btn" data-page="2">2. Thailand</button>
+        <button class="nav-page-btn" data-page="3">3. World</button>
+        <button class="nav-page-btn" data-page="4">4. Tech</button>
+        <button class="nav-page-btn" data-page="5">5. Science</button>
+        <button class="nav-page-btn" data-page="6">6. Weather</button>
+        <button class="nav-page-btn" data-page="7">7. Finance</button>
+        <button class="nav-page-btn" data-page="8">8. History</button>
+        <button class="nav-page-btn" data-page="9">9. Trivia</button>
+        <button class="nav-page-btn" data-page="all">All Pages</button>
+      </nav>
+
+      <div class="toolbar-controls">
+        <button id="btn-open-archive" class="toolbar-btn" title="View Past Stored Newspaper Editions">
+          <svg class="icon" viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+          <span class="btn-text">Archive</span>
+        </button>
+
+        <span class="edition-date-tag" id="current-edition-indicator">Today</span>
+
+        <button id="btn-download-pdf" class="toolbar-btn primary-btn" title="Export Full A4 Booklet PDF">
+          <svg class="icon" viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span class="btn-text">Download PDF</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Slide-out Navigation Drawer -->
+    <div id="mobile-nav-drawer" class="mobile-drawer hidden no-print">
+      <div class="drawer-header">
+        <span class="drawer-title">Newspaper Navigation</span>
+        <button id="btn-close-drawer" class="drawer-close-btn">&times;</button>
+      </div>
+      <div class="drawer-content">
+        <button class="drawer-link active" data-page="1">
+          <span class="drawer-num">Page 1</span>
+          <span class="drawer-name">Cover & Live Dashboard (Weather & Prices)</span>
+        </button>
+        <button class="drawer-link" data-page="2">
+          <span class="drawer-num">Page 2</span>
+          <span class="drawer-name">Thailand Current Situation</span>
+        </button>
+        <button class="drawer-link" data-page="3">
+          <span class="drawer-num">Page 3</span>
+          <span class="drawer-name">World News & Geopolitics</span>
+        </button>
+        <button class="drawer-link" data-page="4">
+          <span class="drawer-num">Page 4</span>
+          <span class="drawer-name">Tech & Software Architecture</span>
+        </button>
+        <button class="drawer-link" data-page="5">
+          <span class="drawer-num">Page 5</span>
+          <span class="drawer-name">Science & Astrophysics</span>
+        </button>
+        <button class="drawer-link" data-page="6">
+          <span class="drawer-num">Page 6</span>
+          <span class="drawer-name">Weather & Climatology</span>
+        </button>
+        <button class="drawer-link" data-page="7">
+          <span class="drawer-num">Page 7</span>
+          <span class="drawer-name">Finance & Global Markets</span>
+        </button>
+        <button class="drawer-link" data-page="8">
+          <span class="drawer-num">Page 8</span>
+          <span class="drawer-name">History & Printing Press Heritage</span>
+        </button>
+        <button class="drawer-link" data-page="9">
+          <span class="drawer-num">Page 9</span>
+          <span class="drawer-name">Daily Trivia & Curiosities</span>
+        </button>
+        <button class="drawer-link" data-page="all">
+          <span class="drawer-num">★</span>
+          <span class="drawer-name">View All Pages</span>
+        </button>
+      </div>
+    </div>
+    <div id="drawer-backdrop" class="drawer-backdrop hidden no-print"></div>
+
+    <!-- Reading Container holding all 9 Pages (With Clickable Page-Turn Edges) -->
+    <main class="reading-viewport">
+      <div class="page-turn-wrapper">
+
+        <div id="booklet-container" class="booklet-document vintage-tone">
+
+          <!-- ========================================================
+               PAGE 1: COVER & MORNING DASHBOARD (WEATHER & PRICES)
+               ======================================================== -->
+          <section id="booklet-page-1" class="booklet-page page-active" data-page-index="1">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p1">Wednesday, September 30, 2026</span>
+                <span>DAILY MORNING EDITION</span>
+                <span>BANGKOK & GLOBAL</span>
+              </div>
+              <h1 class="booklet-masthead-title">The Daily Chronicle</h1>
+              <p class="booklet-sub-masthead">AN INDEPENDENT COMPENDIUM OF CURRENT THAILAND SITUATIONS, ENGINEERING PAPERS & WORLD DISPATCHES</p>
+              <div class="double-rule"></div>
+            </header>
+
+            <!-- Redesigned Prime Meteorological & Commercial Bourse Spread -->
+            <div class="cover-telemetry-master">
+              <!-- Tier 1: Bangkok Meteorological Observatory (Atmospheric Bulletin) -->
+              <div class="weather-observatory-panel">
+                <div class="panel-ornate-header">
+                  <span class="ornate-bullet">&#9670;</span>
+                  <span class="panel-header-title">BANGKOK METEOROLOGICAL OBSERVATORY &bull; LAT. 13.75&deg; N, LONG. 100.50&deg; E</span>
+                  <span class="ornate-bullet">&#9670;</span>
+                </div>
+                <div class="weather-observatory-content">
+                  <div class="weather-primary-col">
+                    <div class="weather-temp-hero">
+                      <span class="weather-hero-icon">🌤️</span>
+                      <span class="temp-big" id="cover-temp">31°C</span>
+                      <div class="temp-conditions-box">
+                        <span class="temp-cond" id="cover-cond">Warm & Breezy</span>
+                        <span class="temp-feel" id="cover-baro">Barometer: 29.98 inHg</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="weather-secondary-grid">
+                    <div class="w-reading-card">
+                      <span class="w-label">RELATIVE HUMIDITY</span>
+                      <strong class="w-val" id="cover-humidity">72%</strong>
+                    </div>
+                    <div class="w-reading-card">
+                      <span class="w-label">SURFACE WIND</span>
+                      <strong class="w-val" id="cover-wind">11 km/h SW</strong>
+                    </div>
+                    <div class="w-reading-card">
+                      <span class="w-label">SOLAR ALMANAC</span>
+                      <strong class="w-val" id="cover-sun">06:08 AM / 18:09 PM</strong>
+                    </div>
+                    <div class="w-reading-card">
+                      <span class="w-label">DIURNAL RANGE</span>
+                      <strong class="w-val" id="cover-range">33°C / 26°C</strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tier 2: Commercial Bourse, Currencies, Equities & Shell Thai Oil Rates -->
+              <div class="bourse-market-panel">
+                <div class="panel-ornate-header">
+                  <span class="ornate-bullet">&#9670;</span>
+                  <span class="panel-header-title">COMMERCIAL BOURSE, CURRENCY EXCHANGE &amp; LIVE COMMODITIES</span>
+                  <span class="ornate-bullet">&#9670;</span>
+                </div>
+
+                <div class="bourse-columns-grid">
+                  <!-- 1. Foreign Exchange -->
+                  <div class="bourse-column">
+                    <div class="bourse-col-head">
+                      <span class="col-head-title">1. FOREIGN EXCHANGE</span>
+                      <span class="col-head-sub">THB Spot Rate</span>
+                    </div>
+                    <div class="bourse-items">
+                      <div class="bourse-row">
+                        <span class="b-name">USD TO THB</span>
+                        <span class="b-val" id="price-usd-thb">฿32.65</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">YEN TO THB</span>
+                        <span class="b-val" id="price-yen-thb">฿22.10 / 100¥</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">RMB TO THB</span>
+                        <span class="b-val" id="price-rmb-thb">฿4.65 / ¥1</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 2. Stocks & Crypto -->
+                  <div class="bourse-column">
+                    <div class="bourse-col-head">
+                      <span class="col-head-title">2. STOCKS &amp; CRYPTO</span>
+                      <span class="col-head-sub">Benchmark Indices</span>
+                    </div>
+                    <div class="bourse-items">
+                      <div class="bourse-row">
+                        <span class="b-name">S&P 500</span>
+                        <span class="b-val" id="price-sp500">5,751.07</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">BTC</span>
+                        <span class="b-val" id="price-btc">$64,820</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">ETH</span>
+                        <span class="b-val" id="price-eth">$2,645</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 3. Global Commodities -->
+                  <div class="bourse-column">
+                    <div class="bourse-col-head">
+                      <span class="col-head-title">3. COMMODITIES</span>
+                      <span class="col-head-sub">Bullion &amp; Barrel</span>
+                    </div>
+                    <div class="bourse-items">
+                      <div class="bourse-row">
+                        <span class="b-name">GOLD (OZ / USD)</span>
+                        <span class="b-val" id="price-gold">$2,682.50</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">OIL (BBL / USD)</span>
+                        <span class="b-val" id="price-oil">$71.20</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 4. Thai Oil (Shell Only): Gasohol 91, 95, E20 and Diesel B7 -->
+                  <div class="bourse-column bourse-column-shell">
+                    <div class="bourse-col-head shell-header">
+                      <span class="col-head-title">4. THAI OIL (SHELL ONLY)</span>
+                      <span class="col-head-sub">Per Litre (THB)</span>
+                    </div>
+                    <div class="bourse-items">
+                      <div class="bourse-row">
+                        <span class="b-name">GASOHOL 91</span>
+                        <span class="b-val b-val-fuel" id="price-shell-91">฿37.48</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">GASOHOL 95</span>
+                        <span class="b-val b-val-fuel" id="price-shell-95">฿37.85</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">GASOHOL E20</span>
+                        <span class="b-val b-val-fuel" id="price-shell-e20">฿35.74</span>
+                      </div>
+                      <div class="bourse-row">
+                        <span class="b-name">DIESEL B7</span>
+                        <span class="b-val b-val-fuel" id="price-shell-diesel">฿32.94</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cover Feature Split -->
+            <div class="cover-feature-split">
+              <div class="cover-image-col">
+                <div class="vintage-engraving-frame">
+                  <div class="engraving-container">
+                    <img class="newspaper-img" src="/thailand_engraving.jpg" alt="Chao Phraya River Vintage Engraving" />
+                  </div>
+                  <figcaption class="caption">
+                    Fig. 1. — Historical woodcut engraving of shipping along Bangkok's Chao Phraya River, symbolizing Thailand's continuing evolution as Southeast Asia's maritime and technology crossroads.
+                  </figcaption>
+                </div>
+              </div>
+
+              <div class="cover-toc-col">
+                <div class="toc-header">
+                  <span class="toc-title">TODAY'S 9-PAGE EDITION (20–30 MIN COMMUTE READ)</span>
+                </div>
+                <ul class="toc-list">
+                  <li><span class="toc-num">Page 2</span> <div class="toc-info"><strong>Thailand Current Situation:</strong> Tech Corridor Surge, LTR Visas & PromptPay <em class="toc-time">(5 min)</em></div></li>
+                  <li><span class="toc-num">Page 3</span> <div class="toc-info"><strong>World News:</strong> Maritime Accords, Supply Chains & Global Diplomacy <em class="toc-time">(4 min)</em></div></li>
+                  <li><span class="toc-num">Page 4</span> <div class="toc-info"><strong>Tech & Engineering:</strong> Raft Consensus & Edge AI Inference Mechanics <em class="toc-time">(5 min)</em></div></li>
+                  <li><span class="toc-num">Page 5</span> <div class="toc-info"><strong>Science:</strong> JWST Prebiotic Carbon Discoveries in the Early Cosmos <em class="toc-time">(4 min)</em></div></li>
+                  <li><span class="toc-num">Page 6</span> <div class="toc-info"><strong>Weather:</strong> Monsoon Dynamics, Barometric Pressures & Climatology <em class="toc-time">(3 min)</em></div></li>
+                  <li><span class="toc-num">Page 7</span> <div class="toc-info"><strong>Finance:</strong> Central Bank Reserves, Sovereign Debt & Currency Flows <em class="toc-time">(3 min)</em></div></li>
+                  <li><span class="toc-num">Page 8</span> <div class="toc-info"><strong>History:</strong> The Press in Siam from King Mongkut to King Chulalongkorn <em class="toc-time">(4 min)</em></div></li>
+                  <li><span class="toc-num">Page 9</span> <div class="toc-info"><strong>Daily Trivia:</strong> Broadsheet Origins, Grace Hopper's Moth & QWERTY <em class="toc-time">(3 min)</em></div></li>
+                </ul>
+              </div>
+            </div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 1 OF 9 • COVER & METRICS</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 2: THAILAND CURRENT SITUATION
+               ======================================================== -->
+          <section id="booklet-page-2" class="booklet-page" data-page-index="2">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p2">DAILY EDITION</span>
+                <span>THAILAND DOMESTIC REPORT</span>
+                <span>DISPATCHES</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <!-- Top Weather & Prices Strip -->
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p2"></div>
+
+            <div id="content-page-2"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 2 OF 9 • THAILAND</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 3: WORLD NEWS
+               ======================================================== -->
+          <section id="booklet-page-3" class="booklet-page" data-page-index="3">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p3">DAILY EDITION</span>
+                <span>WORLD DISPATCHES</span>
+                <span>GLOBAL CORRESPONDENCE</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p3"></div>
+
+            <div id="content-page-3"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 3 OF 9 • WORLD NEWS</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 4: TECH & SOFTWARE ENGINEERING
+               ======================================================== -->
+          <section id="booklet-page-4" class="booklet-page" data-page-index="4">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p4">DAILY EDITION</span>
+                <span>SYSTEMS & SOFTWARE PAPERS</span>
+                <span>COMPUTATIONAL REVIEW</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p4"></div>
+
+            <div id="content-page-4"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 4 OF 9 • TECH REVIEW</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 5: SCIENCE & ASTROPHYSICS
+               ======================================================== -->
+          <section id="booklet-page-5" class="booklet-page" data-page-index="5">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p5">DAILY EDITION</span>
+                <span>NATURAL PHILOSOPHY & DISCOVERIES</span>
+                <span>ASTRONOMICAL RECORD</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p5"></div>
+
+            <div id="content-page-5"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 5 OF 9 • SCIENCE</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 6: WEATHER & CLIMATOLOGY
+               ======================================================== -->
+          <section id="booklet-page-6" class="booklet-page" data-page-index="6">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p6">DAILY EDITION</span>
+                <span>METEOROLOGICAL SCIENCE</span>
+                <span>OBSERVATORY TELEMETRY</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p6"></div>
+
+            <div id="content-page-6"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 6 OF 9 • WEATHER ALMANAC</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 7: FINANCE & MARKETS
+               ======================================================== -->
+          <section id="booklet-page-7" class="booklet-page" data-page-index="7">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p7">DAILY EDITION</span>
+                <span>COMMERCIAL & FISCAL AFFAIRS</span>
+                <span>MARKET METRICS</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p7"></div>
+
+            <div id="content-page-7"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 7 OF 9 • FINANCE</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 8: HISTORY & PRINTING HERITAGE
+               ======================================================== -->
+          <section id="booklet-page-8" class="booklet-page" data-page-index="8">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p8">DAILY EDITION</span>
+                <span>HISTORICAL ARCHIVES</span>
+                <span>SIAMESE CHRONICLES</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p8"></div>
+
+            <div id="content-page-8"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 8 OF 9 • HISTORY</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+          <!-- ========================================================
+               PAGE 9: DAILY TRIVIA & CURIOSITIES
+               ======================================================== -->
+          <section id="booklet-page-9" class="booklet-page" data-page-index="9">
+            <header class="booklet-header">
+              <div class="booklet-running-meta">
+                <span id="masthead-date-p9">DAILY EDITION</span>
+                <span>CURIOSITIES & ODDFELLOWS</span>
+                <span>DAILY COMPENDIUM</span>
+              </div>
+              <div class="double-rule"></div>
+            </header>
+
+            <div class="subpage-telemetry-strip" id="telemetry-strip-p9"></div>
+
+            <div id="content-page-9"></div>
+
+            <footer class="booklet-page-footer">
+              <div class="footer-border"></div>
+              <div class="footer-meta">
+                <span>THE DAILY CHRONICLE & TECH REVIEW</span>
+                <span class="footer-page-badge">PAGE 9 OF 9 • DAILY TRIVIA</span>
+                <span>BANGKOK MORNING EDITION</span>
+              </div>
+            </footer>
+          </section>
+
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Archive Management Modal with Pagination Controls -->
+    <div id="archive-modal" class="modal-overlay hidden no-print">
+      <div class="modal-card archive-modal-card">
+        <button id="archive-modal-close" class="modal-close-btn">&times;</button>
+        <div class="modal-header">
+          <span class="modal-category">EDITION ARCHIVE MANAGEMENT</span>
+          <h2 class="modal-title" id="archive-modal-title">Past Daily Broadsheet Editions</h2>
+          <p class="modal-meta">Editions organized and navigated by month. Each morning's broadsheet is saved here permanently.</p>
+          <div class="archive-month-bar">
+            <span class="month-label">ACTIVE MONTH:</span>
+            <select id="archive-month-select" class="archive-month-dropdown"></select>
+          </div>
+        </div>
+        <div class="archive-list-container" id="archive-list">
+          <!-- Dynamically populated stored editions for selected month -->
+        </div>
+        <!-- Month-defined Pagination controls -->
+        <div class="archive-pagination-bar" id="archive-pagination">
+          <button id="btn-archive-prev" class="archive-page-btn">&larr; Newer Month</button>
+          <span class="archive-page-status" id="archive-page-status">September 2026</span>
+          <button id="btn-archive-next" class="archive-page-btn">Older Month &rarr;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">Notice message</div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

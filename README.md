@@ -19,65 +19,70 @@ Unlike modern algorithmic feeds filled with clickbait and fragmented snippets, *
 
 ## ✨ Key Features
 
-### 📖 The 9-Page Broadsheet Compendium: Meaning & Editorial Purpose
+### 📖 The 9-Page Broadsheet Compendium: Daily Editorial Desks
 
-Each of the 9 dedicated pages is intentionally calibrated to serve a distinct intellectual purpose during a 20–30 minute morning commute, moving from immediate practical coordinates to deep conceptual thinking and reflective heritage:
+*The Daily Chronicle* is not a static document; it is an **automated daily publishing engine**. Each morning at midnight (or upon first opening the app that day), it composes a brand-new edition stamped with today's calendar date, pulling together live API feeds, morning news wire dispatches, real-time market data, and date-matched historical archives.
+
+The 9 pages represent dedicated **editorial beats / desks**, each with an automated pipeline that curates fresh daily content:
 
 1. **Page 1 — The Morning Compass (Cover & Observational Dashboard)**
-   * **What it represents**: *Immediate Situational Awareness & Morning Readiness.*
-   * **Editorial Meaning**: Grounds the reader’s day before diving into long-form text. Pairs Bangkok’s real-time atmospheric readings (temperature, barometric trend, humidity, winds, solar almanac) with live commercial telemetry (foreign exchange rates, benchmark indices, crypto, and local Shell fuel prices). It equips the commuter with essential everyday coordinates.
+   * **Editorial Beat**: *Immediate Situational Awareness & Morning Essentials.*
+   * **Dynamic Ingest**: Continuously queries Bangkok weather sensors via Open-Meteo (temperature, barometric trend, humidity, winds, solar almanac) paired with live bourse feeds (forex, equity indices, crypto, and local fuel prices). It equips the commuter with essential everyday coordinates before diving into the day's reporting.
 
-2. **Page 2 — The Kingdom's Pulse (Thailand Current Situation)**
-   * **What it represents**: *Domestic Transformation & Ground Reality.*
-   * **Editorial Meaning**: Anchors the reader in the evolving reality of Thailand. Moving beyond superficial headlines, it examines deep structural modernizations—including Eastern Economic Corridor cloud campuses, Long-Term Resident (LTR) visa corridors, and national payment rails (PromptPay). It represents staying deeply informed about the society and economy in which one lives.
+2. **Page 2 — The Kingdom's Pulse (Thailand Current Affairs Desk)**
+   * **Editorial Beat**: *Domestic Transformation & Ground Reality.*
+   * **Dynamic Ingest**: Ingests fresh morning dispatches and developments across Thailand from premier national feeds (Bangkok Post, The Thaiger, and national correspondents). Synthesizes daily infrastructure projects, economic developments, policy changes, and civic news into a comprehensive morning briefing.
 
-3. **Page 3 — The Global Horizon (World News & Geopolitics)**
-   * **What it represents**: *Macro Interconnectedness & Strategic Perspective.*
-   * **Editorial Meaning**: Reminds the reader that domestic affairs do not unfold in a vacuum. Synthesizes global supply chain shifts, maritime trade agreements, international diplomacy, and multilateral alliances, offering a wider lens on how global forces shape Southeast Asia and international commerce.
+3. **Page 3 — The Global Horizon (World News & Geopolitics Desk)**
+   * **Editorial Beat**: *Macro Interconnectedness & Strategic Perspectives.*
+   * **Dynamic Ingest**: Aggregates international breaking wires (BBC World and global diplomatic channels). Covers daily shifts in trade corridors, maritime agreements, foreign elections, and multilateral summits shaping world affairs and regional commerce.
 
-4. **Page 4 — The Engineering Mind (Tech & Software Architecture)**
-   * **What it represents**: *First-Principles Thinking & Technical Craftsmanship.*
-   * **Editorial Meaning**: Dedicated to systems designers, software engineers, and technical leaders. Strips away surface buzzwords to analyze underlying architectural mechanics—such as the Raft distributed consensus protocol, quorum mathematics, fault-tolerant log replication, and edge inference. It represents intellectual discipline and professional craft during transit.
+4. **Page 4 — The Engineering Mind (Technology & Systems Architecture Desk)**
+   * **Editorial Beat**: *Deep Technical Thinking & Software Craftsmanship.*
+   * **Dynamic Ingest**: Curates daily high-signal computing papers, distributed systems developments, and technical discussions (ingesting Hacker News and leading engineering publications). Provides deep, first-principles analyses rather than ephemeral marketing buzzwords.
 
-5. **Page 5 — The Outer Frontier (Science & Astrophysics)**
-   * **What it represents**: *Cosmic Wonder & Intellectual Humility.*
-   * **Editorial Meaning**: Shifts the mind away from earthly concerns to contemplate the physical cosmos. From James Webb Space Telescope spectroscopy and early prebiotic carbon compounds to deep-space astrophysics, it provides quiet perspective—a reminder of the vast, silent universe beyond the morning subway car.
+5. **Page 5 — The Outer Frontier (Science & Cosmos Desk)**
+   * **Editorial Beat**: *Cosmic Wonder & Scientific Discovery.*
+   * **Dynamic Ingest**: Fetches daily dispatches on astrophysics, space observatory discoveries (JWST, NASA, ESA), quantum research, and biological breakthroughs (via ScienceDaily and academic feeds), offering a quiet moment of planetary perspective.
 
-6. **Page 6 — The Earth's Rhythm (Weather & Climatology)**
-   * **What it represents**: *Ecological Attunement & Earth Systems Science.*
-   * **Editorial Meaning**: Elevates daily meteorology from a simple numeric forecast to an appreciation of planetary physics. Details the thermodynamic drivers of the Southwest Monsoon, Intertropical Convergence Zone (ITCZ) migration, and atmospheric pressure systems shaping Southeast Asia's delicate river deltas and seasonal cycles.
+6. **Page 6 — The Earth's Rhythm (Weather & Planetary Climatology Desk)**
+   * **Editorial Beat**: *Earth Systems Science & Atmospheric Dynamics.*
+   * **Dynamic Ingest**: Evaluates live weather model data and seasonal atmospheric patterns (via Open-Meteo). Translates raw meteorological readings into dynamic daily analyses of monsoonal winds, pressure fronts, precipitation models, and regional climate trends.
 
-7. **Page 7 — The Sovereign Ledger (Finance & Global Markets)**
-   * **What it represents**: *Macroeconomic Stewardship & Capital Flows.*
-   * **Editorial Meaning**: Translates abstract market figures into macroeconomic comprehension. Explores sovereign bond yield curves, central bank foreign exchange reserves, currency volatility, and regional bilateral trade clearing rails. It represents financial literacy and an understanding of the monetary architecture driving global business.
+7. **Page 7 — The Sovereign Ledger (Finance & Capital Markets Desk)**
+   * **Editorial Beat**: *Macroeconomic Stewardship & Capital Flows.*
+   * **Dynamic Ingest**: Connects live bourse tickers with daily financial journalism. Explores central bank policy announcements, sovereign bond yields, currency volatility, and international liquidity movements.
 
-8. **Page 8 — The Root & Heritage (History of Printing in Siam)**
-   * **What it represents**: *Cultural Memory, Continuity & Respect for the Word.*
-   * **Editorial Meaning**: Pays homage to the medium of the broadsheet itself. Chronicles the arrival of moveable type in 19th-century Siam, Dr. Dan Beach Bradley’s first Siamese printing press, and the transformative intellectual modernization championed by King Mongkut (Rama IV) and King Chulalongkorn (Rama V). It reminds the reader that modern digital discourse rests upon centuries of typographic evolution.
+8. **Page 8 — The Living Chronicle (On This Day in History & Archives Desk)**
+   * **Editorial Beat**: *Cultural Memory & Historical Continuity.*
+   * **Dynamic Ingest**: Dynamically queries historical event databases (Wikipedia "On This Day" API) for significant milestones, treaties, and cultural achievements that took place on **today's exact calendar date**, paired with rich typographic and regional heritage archives.
 
-9. **Page 9 — The Curiosity Cabinet (Daily Curiosities & Human Trivia)**
-   * **What it represents**: *Serendipity, Intellectual Playfulness & A Memorable Close.*
-   * **Editorial Meaning**: Concludes the 30-minute reading journey on an uplifting, memorable note. Curates fascinating historical oddities—from the 18th-century British Stamp Act that birthed the broadsheet to Grace Hopper’s taped moth and ancient Roman chariot wheel gauges that dictated modern railway dimensions. It represents the simple joy of discovery and serendipitous learning to start the workday.
+9. **Page 9 — The Curiosity Cabinet (Daily Curiosities & Human Trivia Desk)**
+   * **Editorial Beat**: *Serendipity, Intellectual Playfulness & A Memorable Close.*
+   * **Dynamic Ingest**: Rotates a fresh daily selection of fascinating historical oddities, linguistic etymologies, engineering trivia, and philosophical excerpts to leave the commuter inspired before stepping off the train.
 
 ---
 
 ### 📊 Real-Time Financial Bourse & Bangkok Meteorology
-* **Foreign Exchange (THB Spot Rates)**:
-  * USD to THB (`฿32.65`)
-  * YEN to THB per 100¥ (`฿22.10 / 100¥`)
-  * RMB to THB per ¥1 (`฿4.65 / ¥1`)
-* **Equities & Digital Assets**:
-  * S&P 500 Index
-  * Bitcoin (BTC in USD)
-  * Ethereum (ETH in USD)
-* **Live Commodities & Thai Fuel**:
-  * Gold Bullion per troy ounce (USD)
-  * Crude Oil per barrel (Brent / USD)
-  * **Shell Thailand Retail Fuel Stations (THB/L)**:
-    * Gasohol 91
-    * Gasohol 95 (FuelSave / V-Power)
-    * Gasohol E20
-    * Diesel B7
+
+All telemetry figures are **fetched live on page load** from public market and meteorological APIs, reflecting current real-world values:
+
+* **Live Foreign Exchange (THB Spot Rates)**:
+  * USD to THB (`USD/THB`)
+  * JPY to THB (`JPY/THB per 100¥`)
+  * CNY to THB (`CNY/THB per ¥1`)
+* **Live Equities & Digital Assets**:
+  * S&P 500 Benchmark Index
+  * Bitcoin (`BTC/USD`)
+  * Ethereum (`ETH/USD`)
+* **Live Commodities & Energy**:
+  * Gold Bullion spot price per troy ounce (`XAU/USD`)
+  * Crude Oil spot price per barrel (`Brent/USD`)
+* **Shell Thailand Retail Fuel Stations (THB/L)**:
+  * Gasohol 91
+  * Gasohol 95 (FuelSave / V-Power)
+  * Gasohol E20
+  * Diesel B7
 * **Top Telemetry Strip**: A dedicated, spacious meteorological and market ticker displayed across the top of Pages 2 through 9.
 
 ---

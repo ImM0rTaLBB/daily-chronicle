@@ -1111,15 +1111,30 @@ body {
 
 .archive-month-dropdown {
   background: #fbf8f0;
-  border: 1px solid #b8ab94;
-  padding: 5px 10px;
+  border: 1.5px solid #842323;
+  padding: 6px 30px 6px 12px;
   font-family: 'Cinzel', serif;
   font-size: 11.5px;
   font-weight: 700;
   color: var(--accent-burgundy);
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   outline: none;
+  max-width: 100%;
+  box-sizing: border-box;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23842323%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.archive-month-dropdown:focus {
+  border-color: #551414;
+  box-shadow: 0 0 0 2px rgba(132, 35, 35, 0.25);
 }
 
 .archive-empty-box {
@@ -1262,8 +1277,43 @@ body {
 /* ========================================================
    RESPONSIVE DESIGN (TABLETS & MOBILE)
    ======================================================== */
+/* Responsive styles for modal, navbar, and layouts */
 @media (max-width: 900px) {
   .booklet-nav-ribbon {
+    display: none;
+  }
+  .app-toolbar {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+  .toolbar-brand {
+    gap: 8px;
+    min-width: 0;
+  }
+  .brand-text {
+    min-width: 0;
+  }
+  .toolbar-title {
+    font-size: 13.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .toolbar-sub {
+    font-size: 8px;
+  }
+  .toolbar-controls {
+    gap: 6px;
+    flex-shrink: 0;
+  }
+  .edition-date-tag {
+    font-size: 10.5px;
+    padding: 3px 6px;
+  }
+  .toolbar-btn {
+    padding: 6px 9px;
+  }
+  .toolbar-controls .btn-text {
     display: none;
   }
   .cover-feature-split {
@@ -1308,7 +1358,149 @@ body {
     gap: 4px;
     text-align: center;
   }
-  .toolbar-controls .btn-text {
+}
+
+@media (max-width: 600px) {
+  .modal-overlay {
+    padding: 10px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+  .modal-card {
+    padding: 22px 14px 16px;
+    max-height: 92vh;
+    border-radius: 6px;
+  }
+  .modal-title {
+    font-size: 20px;
+  }
+  .archive-month-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px;
+  }
+  .archive-month-dropdown {
+    width: 100%;
+    font-size: 12.5px;
+    padding: 8px 10px;
+  }
+  .archive-item-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 10px;
+  }
+  .archive-item-actions {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    gap: 8px;
+  }
+  .archive-action-btn {
+    flex: 1;
+    padding: 7px 12px;
+    font-size: 12px;
+    text-align: center;
+  }
+  .archive-pagination-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 10px 8px;
+    align-items: center;
+    padding-top: 12px;
+  }
+  .archive-page-status {
+    grid-column: 1 / -1;
+    text-align: center;
+    order: -1;
+    font-size: 12px;
+    padding-bottom: 2px;
+  }
+  .archive-page-btn {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    box-sizing: border-box;
+  }
+  .archive-page-btn .btn-month-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  #btn-archive-prev {
+    grid-column: 1 / 2;
+  }
+  #btn-archive-next {
+    grid-column: 2 / 3;
+  }
+  
+  /* Navbar unclustering on mobile */
+  .app-toolbar {
+    padding: 6px 12px;
+    gap: 8px;
+    min-height: 52px;
+  }
+  .toolbar-brand {
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+  .hamburger-btn {
+    padding: 6px;
+    flex-shrink: 0;
+  }
+  .brand-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .brand-text .toolbar-title {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.15;
+  }
+  .brand-text .toolbar-sub {
+    font-size: 7.5px;
+    letter-spacing: 0.8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .toolbar-icon {
+    font-size: 19px;
+    flex-shrink: 0;
+  }
+  .toolbar-controls {
+    gap: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  .toolbar-btn {
+    padding: 7px 10px;
+    border-radius: 6px;
+    min-width: 36px;
+    min-height: 36px;
+    justify-content: center;
+  }
+  .toolbar-btn .icon {
+    width: 17px;
+    height: 17px;
+  }
+  .edition-date-tag {
     display: none;
   }
 }

@@ -269,11 +269,11 @@ function renderMonthlyArchiveList() {
     if (archiveCurrentMonthIndex > 0) {
       const newerMonth = months[archiveCurrentMonthIndex - 1];
       prevBtn.disabled = false;
-      prevBtn.innerHTML = `&larr; Newer: ${newerMonth.label}`;
+      prevBtn.innerHTML = `&larr; <span class="btn-month-label">Newer: ${newerMonth.label}</span>`;
       prevBtn.title = `Go to ${newerMonth.label}`;
     } else {
       prevBtn.disabled = true;
-      prevBtn.innerHTML = `&larr; Newer Month`;
+      prevBtn.innerHTML = `&larr; <span class="btn-month-label">Newer Month</span>`;
       prevBtn.title = `Already at newest month`;
     }
   }
@@ -282,11 +282,11 @@ function renderMonthlyArchiveList() {
     if (archiveCurrentMonthIndex < months.length - 1) {
       const olderMonth = months[archiveCurrentMonthIndex + 1];
       nextBtn.disabled = false;
-      nextBtn.innerHTML = `Older: ${olderMonth.label} &rarr;`;
+      nextBtn.innerHTML = `<span class="btn-month-label">Older: ${olderMonth.label}</span> &rarr;`;
       nextBtn.title = `Go to ${olderMonth.label}`;
     } else {
       nextBtn.disabled = true;
-      nextBtn.innerHTML = `Older Month &rarr;`;
+      nextBtn.innerHTML = `<span class="btn-month-label">Older Month</span> &rarr;`;
       nextBtn.title = `Earliest archived month`;
     }
   }

@@ -31,17 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
 /**
  * Check if today is a new day or if an edition already exists in the archive
  */
-async function autoLoadDayEdition() {
+async function autoLoadDayEdition(forceRefresh = false) {
   const dateStr = currentDate.toISOString().split("T")[0];
   const dateIndicator = document.getElementById("current-edition-indicator");
   if (dateIndicator) dateIndicator.textContent = dateStr;
 
   try {
-    const existingEdition = getEditionFromArchive(dateStr);
-    if (existingEdition && existingEdition.pages) {
-      currentEditionData = existingEdition;
-      renderFullEdition(existingEdition);
-      return;
+    if (!forceRefresh) {
+      const existingEdition = getEditionFromArchive(dateStr);
+      if (existingEdition && existingEdition.pages) {
+        currentEditionData = existingEdition;
+        renderFullEdition(existingEdition);
+        return;
+      }
     }
 
     showToast("Composing today's morning broadsheet...");
@@ -59,6 +61,9 @@ async function autoLoadDayEdition() {
     currentEditionData = edition;
     saveEditionToArchive(dateStr, edition);
     renderFullEdition(edition);
+    if (forceRefresh) {
+      showToast("Refreshed today's edition with live dispatches!");
+    }
   } catch (err) {
     console.error("autoLoadDayEdition error, using local fallback composition:", err);
     const fallbackEdition = buildEditionData({}, null, null, [], currentDate);
@@ -126,6 +131,11 @@ function initNavigation() {
       switchPage(link.dataset.page);
       closeMobileDrawer();
     });
+  });
+
+  const refreshBtn = document.getElementById("btn-refresh-edition");
+  refreshBtn?.addEventListener("click", () => {
+    autoLoadDayEdition(true);
   });
 }
 
